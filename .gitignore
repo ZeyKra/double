@@ -104,9 +104,6 @@ dist
 .tern-port
 
 #files
-in/
-out/
-temp/
 archives/
 
 #vscode

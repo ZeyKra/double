@@ -1,16 +1,18 @@
 #
 videos:
     top:
-        url: "https://www.youtube.com/watch?v=aUgcMvChtu8"
+        url: "https://www.youtube.com/watch?v=p29ChoqGC7o"
         start: "3:17"
         duration: "1:40"
-        resolution: "1080x1920"
+        quality: "1080p"
+        name: "top.mp4"
 
     bottom:
-        url: "https://www.youtube.com/watch?v=9eqvo0uqpTs"
+        url: "https://www.youtube.com/watch?v=GPAjUBt6WUg"
         start: "0:13"
         duration: "1:40"
-        resolution: "1080x1920"
+        quality: "1080p"
+        name: "bottom.mp4"
 
 #    
 audio:
