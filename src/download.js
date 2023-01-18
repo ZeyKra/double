@@ -2,6 +2,9 @@ const { info } = require("console");
 const fs = require("fs");
 const { format, resolve } = require("path");
 const ytdl = require("ytdl-core");
+const ytmp3 = require('youtube-mp3-converter')
+
+
 
 /**
  * ffads
@@ -106,8 +109,38 @@ function download(url, path, itag=399) {
 
 }
 
+/**
+ * Telecharge un audio(mp3) au chemin voulue
+ *
+ * @param {string} url lien youtube de l'audio
+ * @param {string} start_time timestamp de départ
+ * @param {number} duration longueur de l'audio
+ * @param {string} path chemin de sauvegarde
+ *
+ * @return audio (.mp3)
+ */
+async function audioDownload(url, start_time, duration, path) {
+
+  const convertLinkToMp3 = ytmp3(path)
+
+
+    const pathToMp3 = await convertLinkToMp3(url, {
+        startTime: start_time, // from where in the video the mp3 should start
+        duration: duration, // Length of mp3 in seconds (from start point)
+        title: 'audio.mp3' // The tile of the mp3 file, undefined it takes the youtube title
+    })
+
+    return await pathToMp3
+
+
+   
+
+}
+
+
 module.exports = {
   download,
   getAvailableCodecs: getAvailableCodecs,
-  getItag
+  getItag,
+  audioDownload
 };

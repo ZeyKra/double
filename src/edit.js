@@ -4,7 +4,10 @@ const { log } = require('console');
 const cliProgress = require('cli-progress');
 const colors = require('ansi-colors');
 
-const config = require('./config.json')
+const reader = require('./reader.js');
+const { on } = require('events');
+
+const config = require("../config.json");
 
 
 
@@ -19,7 +22,7 @@ var step = 0;
 
 ///audio(config.temp.stack, config.in.audio, config.out.render);
 
-audio("./stack-working.mp4", "./audio.mp3", "./output.mp4")
+//audio("./stack-working.mp4", "./audio.mp3", "./output.mp4")
 
 
 /**
@@ -41,18 +44,20 @@ function crop(video, path) {
 
     crop_bar.start(100, 0);
 
-    FFmpeg()
+    return new Promise(function (resolve, reject) {
+      FFmpeg()
         .addInput(video)
-        .videoFilter('crop=1080:960')
-        .on('progress', (progress) => {
-            crop_bar.update(Math.round(progress.percent));
+        .videoFilter("crop=1080:960")
+        .on("progress", (progress) => {
+          crop_bar.update(Math.round(progress.percent));
         })
-        .on('end', () => {
-            crop_bar.stop()
-            console.log(`» Saved → "${path}"`);
-            nextStep()
+        .on("end", () => {
+          crop_bar.stop();
+          resolve(`» Saved → "${path}"`);
         })
-        .save(path)
+        .save(path);
+    });
+
 }
 
 /**
@@ -75,21 +80,25 @@ function stack(video_up, video_down, path) {
 
     stack_bar.start(100, 0);
 
-    FFmpeg()
+      
+    return new Promise(function (resolve, reject) {
+      FFmpeg()
         .addInput(video_up)
         .addInput(video_down)
-        .inputOption('-filter_complex vstack=inputs=2:shortest=1')
+        .inputOptions("-filter_complex vstack=inputs=2:shortest=1")
+        .addOutputOption("-fps_mode vfr")
 
-        .on('progress', (progress) => {
-            stack_bar.update(Math.round(progress.percent))
+        .on("progress", (progress) => {
+          stack_bar.update(Math.round(progress.percent));
         })
-        .on('end', () => {
-            stack_bar.stop()
-            console.log(`» Saved → "${path}"`);
+        .on("end", () => {
+          stack_bar.stop();
+          resolve(`» Saved → "${path}"`);
         })
-
         .save(path);
+    });
 
+        
 }
 
 /**
@@ -149,7 +158,7 @@ function action() {
     switch (step) {
         //Roniage de la top video
         case 0:
-            crop(config.in.input_up, config.temp.crop_up);
+            crop(path, config.temp.crop_up);
             break;
         //Roniage de la down video
         case 1:
@@ -174,7 +183,7 @@ function action() {
 function nextStep() {
     step += 1;
     console.log(" ");
-    action();
+    //action();
 }
 
 function resize(video) {

@@ -8,6 +8,8 @@
     
     "temp": 
     {
+        "top" : "./temp/top.mp4",
+        "bottom" : "./temp/bottom.mp4",
         "crop_up" : "./temp/crop_up.mp4",
         "crop_down" : "./temp/crop_down.mp4",
         "stack" : "./temp/stack.mp4"

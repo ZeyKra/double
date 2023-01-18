@@ -1,5 +1,5 @@
 const reader = require("./src/reader.js");
-//const edit =  require('./src/edit.js');
+const edit =  require('./src/edit.js');
 const download = require("./src/download.js");
 
 let data = reader.getData("download.yml");
@@ -7,6 +7,7 @@ let data = reader.getData("download.yml");
 //download.download(data.videos.top.url , "./temp/top.mp4");
 //download.download(data.videos.bottom.url , "./temp/bottom.mp4");
 
+/*
 function downloadEach() {
     return new Promise(function (resolve, reject) {
         var resolveCount = 0;
@@ -34,9 +35,12 @@ function downloadEach() {
                 });
           });
     });
-}
+}*/
 
-downloadEach().then((res) => console.log(res))
+// downloadEach().then((res) => console.log(res))
+
+
+
 
 /*    
 download.getAvailableCodecs(data.videos.bottom.url, data.videos.bottom.quality)
@@ -47,3 +51,5 @@ download.download(data.videos.top.url, `./temp/${data.videos.top.name}`)
     .then( (res) => { console.log("Hello squidgame butternut ! :" + res)}) */
 
 //console.log(formats)
+
+download.audioDownload("https://www.youtube.com/watch?v=_cyND_1y1k0", "00:00:10", 20, "./")
