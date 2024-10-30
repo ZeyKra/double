@@ -1,7 +1,7 @@
 {
-  "name": "tiktok-bot",
+  "name": "double",
   "version": "1.0.0",
-  "description": "bot qui fait des video tiktok tout seul ya zehbi",
+  "description": "Algorithme permettant de generer un contenu tiktok a partir de deux vidéos",
   "main": "npm run index",
   "scripts": {
     "index": "node index.js",
