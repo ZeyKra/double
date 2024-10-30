@@ -1,19 +1,19 @@
 #
 videos:
     top:
-        url: "https://www.youtube.com/watch?v=p29ChoqGC7o"
-        start: "3:17"
-        duration: "1:40"
+        url: "https://www.youtube.com/watch?v=WDsKkOfGl18"
+        start: "1:01"
+        duration: "1:02"
         quality: "1080p"
         name: "top.mp4"
 
     bottom:
-        url: "https://www.youtube.com/watch?v=GPAjUBt6WUg"
-        start: "0:13"
-        duration: "1:40"
+        url: "https://www.youtube.com/watch?v=ZkHKGWKq9mY"
+        start: "0:00"
+        duration: "1:02"
         quality: "1080p"
         name: "bottom.mp4"
 # Optonal     
-audio:
+audio: ##the same as top video parameters
 
 

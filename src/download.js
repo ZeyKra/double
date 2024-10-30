@@ -122,21 +122,23 @@ function download(url, path, itag=399) {
 async function audioDownload(url, start_time, duration, path) {
 
   const convertLinkToMp3 = ytmp3(path)
+  const pathToMp3 = await convertLinkToMp3(url, {
+    startTime: start_time, // from where in the video the mp3 should start
+    duration: duration, // Length of mp3 in seconds (from start point)
+    title: 'audio' // The tile of the mp3 file, undefined it takes the youtube title
+  })
 
-
-    const pathToMp3 = await convertLinkToMp3(url, {
-        startTime: start_time, // from where in the video the mp3 should start
-        duration: duration, // Length of mp3 in seconds (from start point)
-        title: 'audio.mp3' // The tile of the mp3 file, undefined it takes the youtube title
-    })
-
-    return await pathToMp3
-
-
-   
-
+  return await pathToMp3
 }
 
+/**
+ * Clear les fichiers temporaire (./temp)
+ *
+ * @param {path} path chemin d'acccès
+ * 
+ */
+async function clearFiles(path) {
+}
 
 module.exports = {
   download,

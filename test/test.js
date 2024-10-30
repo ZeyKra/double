@@ -52,4 +52,4 @@ download.download(data.videos.top.url, `./temp/${data.videos.top.name}`)
 
 //console.log(formats)
 
-download.audioDownload("https://www.youtube.com/watch?v=_cyND_1y1k0", "00:00:10", 20, "./")
+download.audioDownload("https://www.youtube.com/watch?v=_cyND_1y1k0", "00:00:10", 20, "./temp/");

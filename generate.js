@@ -9,9 +9,9 @@ const log = (text) => console.log(text);
 
 ( async () => {
 
+    
     let codecs;
 
-    /*
     codecs = await download.getAvailableCodecs(data.videos.top.url, data.videos.top.quality); 
     let topItag = await download.getItag(codecs, "avc1");
     await download.download(data.videos.top.url, "./temp/top.mp4", topItag);
@@ -20,9 +20,11 @@ const log = (text) => console.log(text);
     codecs = await download.getAvailableCodecs(data.videos.bottom.url, data.videos.bottom.quality); 
     let bottomItags = await download.getItag(codecs, "avc1");
     await download.download(data.videos.bottom.url, "./temp/bottom.mp4", bottomItags);
-    console.log("bottom Video downloaded"); */
+    console.log("bottom Video downloaded"); 
 
-/*
+    download.audioDownload(data.videos.top.url, data.videos.top.start, data.videos.top.duration, "./temp/");
+ 
+
     await edit.crop(config.temp.top, config.temp.crop_up)
       .catch( (error) => console.error(error))
       .then( (result) => { console.log(result)});
@@ -34,10 +36,10 @@ const log = (text) => console.log(text);
     
     await edit.stack(config.temp.crop_up, config.temp.crop_down, config.temp.stack)
       .catch( (error) => console.error(error))
-      .then( (result) => { console.log(result)});  */
-
-    await edit.audio()
-
+      .then( (result) => { console.log(result)});  
+    
+    await edit.audio(config.temp.stack, config.temp.audio, config.out.render);  
+      
 
 
   

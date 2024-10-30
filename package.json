@@ -7,7 +7,7 @@
     "index": "node index.js",
     "download": "node ./src/download.js",
     "edit": "node ./src/edit.js",
-    "test": "node test.js",
+    "test": "node ./test/test.js",
     "generate": "node generate.js"
   },
   "author": "Adryan",
