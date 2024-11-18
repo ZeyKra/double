@@ -8,6 +8,7 @@ lerna-debug.log*
 
 #project files
 temp/*.mp4
+temp/*.mp3
 out/*.mp4
 
 # Diagnostic reports (https://nodejs.org/api/report.html)

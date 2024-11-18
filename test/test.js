@@ -1,6 +1,6 @@
-const reader = require("./src/reader.js");
-const edit =  require('./src/edit.js');
-const download = require("./src/download.js");
+const reader = require("../src/reader.js");
+const edit =  require('../src/edit.js');
+const download = require("../src/download.js");
 
 let data = reader.getData("download.yml");
 

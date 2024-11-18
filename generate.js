@@ -8,7 +8,6 @@ let data = reader.getData("download.yml");
 const log = (text) => console.log(text); 
 
 ( async () => {
-
     
     let codecs;
 
@@ -40,9 +39,6 @@ const log = (text) => console.log(text);
     
     await edit.audio(config.temp.stack, config.temp.audio, config.out.render);  
       
-
-
-  
 
     /*
     await download
